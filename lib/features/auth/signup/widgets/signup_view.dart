@@ -53,12 +53,13 @@ class SignUpView extends StatelessWidget {
                         text: 'Sign Up',
                         onTap: () {
                           if (_signUpFormKey.currentState!.validate()) {
-                            context.read<SignupBloc>().add(
-                                SignupButtonPressedEvent(
-                                    emailController: _emailController,
-                                    passwordController: _passwordController,
-                                    usernameController: _usernameController,
-                                    place: state.place));
+                            context
+                                .read<SignupBloc>()
+                                .add(SignupButtonPressedEvent(
+                                  emailController: _emailController,
+                                  passwordController: _passwordController,
+                                  usernameController: _usernameController,
+                                ));
                           }
                         }),
                   ],

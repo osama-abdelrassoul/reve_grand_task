@@ -7,10 +7,7 @@ class User extends Equatable {
   final String id;
   final String name;
 
-  final String place;
-
   const User({
-    this.place = '',
     this.email = '',
     this.id = '',
     this.name = '',
@@ -21,16 +18,15 @@ class User extends Equatable {
       'email': email,
       'id': id,
       'name': name,
-      'place': place,
     };
   }
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-        email: map['email'] ?? "",
-        id: map['id'] ?? "",
-        name: map['name'] ?? "",
-        place: map['place'] ?? "");
+      email: map['email'] ?? "",
+      id: map['id'] ?? "",
+      name: map['name'] ?? "",
+    );
   }
 
   String toJson() => json.encode(toMap());
@@ -40,5 +36,5 @@ class User extends Equatable {
 
   @override
   @override
-  List<Object?> get props => [email, id, name, place];
+  List<Object?> get props => [email, id, name];
 }

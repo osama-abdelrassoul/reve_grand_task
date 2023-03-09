@@ -19,10 +19,10 @@ class TopBarLogin extends StatelessWidget {
             ),
             Container(
               height: Utilities.screenHeight * 0.14,
-              width: Utilities.screenWidth * 0.33,
+              width: Utilities.screenWidth * 0.30,
               decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(100),
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(300),
                   image: const DecorationImage(
                       fit: BoxFit.cover,
                       image: AssetImage('assets/images/profile.png'))),

@@ -24,10 +24,10 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           message: "Created successfully", status: SignupStatus.success));
       if (state.status == SignupStatus.success) {
         User user = User(
-            email: event.emailController.text,
-            id: fb.FirebaseAuth.instance.currentUser!.uid,
-            name: event.usernameController.text,
-            place: event.place);
+          email: event.emailController.text,
+          id: fb.FirebaseAuth.instance.currentUser!.uid,
+          name: event.usernameController.text,
+        );
         await CloudFirestore().uploadUserData(user: user);
       }
     } catch (e) {

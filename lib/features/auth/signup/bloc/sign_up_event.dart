@@ -11,13 +11,12 @@ class SignupButtonPressedEvent extends SignupEvent {
   const SignupButtonPressedEvent(
       {required this.passwordController,
       required this.usernameController,
-      required this.place,
       required this.emailController});
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final TextEditingController usernameController;
-  final String place;
+
   @override
   List<Object> get props =>
-      [emailController, passwordController, passwordController, place];
+      [emailController, passwordController, passwordController];
 }

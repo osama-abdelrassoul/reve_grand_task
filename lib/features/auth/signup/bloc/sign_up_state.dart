@@ -7,16 +7,14 @@ enum SignupStatus {
 }
 
 class SignupState extends Equatable {
-  const SignupState(
-      {this.id = '',
-      this.message = '',
-      this.status = SignupStatus.loading,
-      this.place = 'Facebook'});
+  const SignupState({
+    this.id = '',
+    this.message = '',
+    this.status = SignupStatus.loading,
+  });
 
   final String message;
   final SignupStatus status;
-
-  final String place;
 
   final String id;
 
@@ -24,15 +22,14 @@ class SignupState extends Equatable {
     String? id,
     SignupStatus? status,
     String? message,
-    String? place,
   }) {
     return SignupState(
-        status: status ?? this.status,
-        message: message ?? this.message,
-        id: id ?? this.id,
-        place: place ?? this.place);
+      status: status ?? this.status,
+      message: message ?? this.message,
+      id: id ?? this.id,
+    );
   }
 
   @override
-  List<Object?> get props => [message, status, id, place];
+  List<Object?> get props => [message, status, id];
 }
