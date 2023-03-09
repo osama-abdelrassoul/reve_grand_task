@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "919787590222",
+    "firebase_url": "https://reve-grand-task-default-rtdb.firebaseio.com",
+    "project_id": "reve-grand-task",
+    "storage_bucket": "reve-grand-task.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919787590222:android:64c293ed59f8ce79e6691f",
+        "android_client_info": {
+          "package_name": "com.example.reve_grand_tast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919787590222-k2bt247sevbbf3ba6910fhshmps4gp2j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-vhrGg_3yg9RAabGKtYjhLM3RbJtNW6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919787590222-k2bt247sevbbf3ba6910fhshmps4gp2j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

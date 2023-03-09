@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>919787590222-fc9k9eqtn7b4tnr0urhf4gqi7qfk85h1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.919787590222-fc9k9eqtn7b4tnr0urhf4gqi7qfk85h1</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDYLkpgSC_SMfyhGgy1wAOGOE3NXIwTKaw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>919787590222</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.reveGrandTast</string>
+	<key>PROJECT_ID</key>
+	<string>reve-grand-task</string>
+	<key>STORAGE_BUCKET</key>
+	<string>reve-grand-task.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:919787590222:ios:ba07ee51982da549e6691f</string>
+	<key>DATABASE_URL</key>
+	<string>https://reve-grand-task-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
