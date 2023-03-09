@@ -1,42 +1,53 @@
-import 'dart:async';
+import 'dart:ffi';
 
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
-
-import '../utils/settings.dart';
-
-const channel = "test";
+import 'package:reve_grand_tast/features/video_call/utils/settings.dart';
 
 class CallScreen extends StatefulWidget {
-  const CallScreen({Key? key}) : super(key: key);
+  final String? channelName;
+  final ClientRoleType? clientRoleType;
+  const CallScreen({super.key, this.channelName, this.clientRoleType});
 
   @override
   State<CallScreen> createState() => _CallScreenState();
 }
 
 class _CallScreenState extends State<CallScreen> {
+  final _infoString = <String>[];
+  bool mutes = false;
+  bool viewPanel = false;
+  late RtcEngine _engine;
   int? _remoteUid;
   bool _localUserJoined = false;
-  late RtcEngine _engine;
-
   @override
   void initState() {
     super.initState();
-    initAgora();
+    initialize();
   }
 
-  Future<void> initAgora() async {
-    // retrieve permissions
-    await [Permission.microphone, Permission.camera].request();
+  @override
+  void dispose() {
+    _engine.leaveChannel();
 
-    //create the engine
+    super.dispose();
+  }
+
+  Future<Void?> initialize() async {
+    if (appId.isEmpty) {
+      setState(() {
+        _infoString.add("App Id missing, please provide the app id");
+      });
+      _infoString.add("Agora Engine is not starting");
+
+      return null;
+    }
     _engine = createAgoraRtcEngine();
     await _engine.initialize(const RtcEngineContext(
       appId: appId,
       channelProfile: ChannelProfileType.channelProfileLiveBroadcasting,
     ));
-
     _engine.registerEventHandler(
       RtcEngineEventHandler(
         onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
@@ -64,20 +75,22 @@ class _CallScreenState extends State<CallScreen> {
         },
       ),
     );
-
+    dynamic configuration = const VideoEncoderConfiguration();
+    configuration.dimensions = const VideoDimensions(width: 1920, height: 1080);
+    await _engine.setVideoEncoderConfiguration(configuration);
     await _engine.setClientRole(role: ClientRoleType.clientRoleBroadcaster);
     await _engine.enableVideo();
     await _engine.startPreview();
 
     await _engine.joinChannel(
       token: token,
-      channelId: channel,
+      channelId: 'task',
       uid: 0,
       options: const ChannelMediaOptions(),
     );
+    return null;
   }
 
-  // Create UI with local view and remote view
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,14 +124,13 @@ class _CallScreenState extends State<CallScreen> {
     );
   }
 
-  // Display remote user's video
   Widget _remoteVideo() {
     if (_remoteUid != null) {
       return AgoraVideoView(
         controller: VideoViewController.remote(
           rtcEngine: _engine,
           canvas: VideoCanvas(uid: _remoteUid),
-          connection: const RtcConnection(channelId: channel),
+          connection: RtcConnection(channelId: widget.channelName!),
         ),
       );
     } else {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reve_grand_tast/features/video_call/screens/index.dart';
 
 import '../../../../core/utilities/utilities.dart';
 
-import '../../../../ui/bottom_nav_bar/bottom_navigation_bar.dart';
 import '../../common/custom_button.dart';
 import '../../common/custom_text_field.dart';
 import '../../common/top_bar_login.dart';
@@ -30,7 +30,7 @@ class LoginView extends StatelessWidget {
           Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
             MaterialPageRoute(
               builder: (BuildContext context) {
-                return const BottomNavBar();
+                return const IndexScreen();
               },
             ),
             (_) => false,

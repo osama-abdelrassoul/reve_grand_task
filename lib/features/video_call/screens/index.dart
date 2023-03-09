@@ -100,7 +100,10 @@ class _IndexScreenState extends State<IndexScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => CallScreen(),
+          builder: (context) => CallScreen(
+            channelName: _channelController.text,
+            clientRoleType: _role,
+          ),
         ),
       );
     }

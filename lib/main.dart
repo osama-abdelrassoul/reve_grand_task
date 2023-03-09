@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:reve_grand_tast/features/video_call/screens/call.dart';
 import 'package:reve_grand_tast/features/video_call/screens/index.dart';
 
 import 'features/auth/login/bloc/login_bloc.dart';
 
+import 'features/auth/login/screens/login_screen.dart';
 import 'features/auth/signup/bloc/sign_up_bloc.dart';
 
 void main() {
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           return const MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
-            home: CallScreen(),
+            home: LoginScreen(),
           );
         },
       ),
