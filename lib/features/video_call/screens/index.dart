@@ -32,7 +32,7 @@ class _IndexScreenState extends State<IndexScreen> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
               SizedBox(
@@ -100,10 +100,7 @@ class _IndexScreenState extends State<IndexScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => CallScreen(
-            channelName: _channelController.text,
-            clientRoleType: _role,
-          ),
+          builder: (context) => CallScreen(),
         ),
       );
     }
